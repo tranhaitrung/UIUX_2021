@@ -35,6 +35,48 @@ const routes = [
         component: () => import('@/views/theme/Typography.vue'),
       },
       {
+        path: '/kpi-unit',
+        name: 'KPI đơn vị',
+        component: {
+          render() {
+            return h(resolveComponent('router-view'))
+          },
+        },
+        redirect: '/kpi-unit/dashboard-unit',
+        children: [
+          {
+            path: '/kpi-unit/dashboard-unit',
+            name: 'Dashboard KPI đơn vị',
+            component: () => import('@/views/kpiUnit/DashboardUnit.vue'),
+          },
+          {
+            path: '/kpi-unit/create',
+            name: 'Breadcrumbs',
+            component: () => import('@/views/base/Breadcrumbs.vue'),
+          },
+          {
+            path: '/kpi-unit/manage',
+            name: 'Quản lý KPI đơn vị',
+            component: () => import('@/views/kpiUnit/DashboardUnit.vue'),
+          },
+          {
+            path: '/base/carousels',
+            name: 'Carousels',
+            component: () => import('@/views/base/Carousels.vue'),
+          },
+          {
+            path: '/base/collapses',
+            name: 'Collapses',
+            component: () => import('@/views/base/Collapses.vue'),
+          },
+          {
+            path: '/base/list-groups',
+            name: 'List Groups',
+            component: () => import('@/views/base/ListGroups.vue'),
+          },
+        ],
+      },
+      {
         path: '/base',
         name: 'Base',
         component: {

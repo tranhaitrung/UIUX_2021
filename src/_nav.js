@@ -10,6 +10,44 @@ export default [
     },
   },
   {
+    component: 'CNavGroup',
+    name: 'KPI đơn vị',
+    to: '/kpi-unit',
+    icon: 'cil-puzzle',
+    items: [
+      {
+        component: 'CNavItem',
+        name: 'Dashboard KPI đơn vị',
+        to: '/kpi-unit/dashboard-unit',
+      },
+      {
+        component: 'CNavItem',
+        name: 'Khởi tạo KPI đơn vị',
+        to: '/kpi-unit/create',
+      },
+      {
+        component: 'CNavItem',
+        name: 'Quản lý KPI đơn vị',
+        to: '/kpi-unit/manage',
+      },
+      {
+        component: 'CNavItem',
+        name: 'Phân tích tính hợp lý trong thiết lập KPI đơn vị',
+        to: '/kpi-unit/analyst',
+      },
+      {
+        component: 'CNavItem',
+        name: 'Dashboard KPI nhân viên',
+        to: '/kpi-unit/dashboard-member',
+      },
+      {
+        component: 'CNavItem',
+        name: 'Đánh giá KPI nhân viên',
+        to: '/kpi-unit/evaluate',
+      },
+    ],
+  },
+  {
     component: 'CNavTitle',
     name: 'Theme',
   },
