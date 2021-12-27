@@ -57,7 +57,7 @@ const routes = [
           {
             path: '/kpi-unit/manage',
             name: 'Quản lý KPI đơn vị',
-            component: () => import('@/views/kpiUnit/DashboardUnit.vue'),
+            component: () => import('@/views/kpiUnit/ManageUnit.vue'),
           },
           {
             path: '/base/carousels',
@@ -70,9 +70,9 @@ const routes = [
             component: () => import('@/views/base/Collapses.vue'),
           },
           {
-            path: '/base/list-groups',
-            name: 'List Groups',
-            component: () => import('@/views/base/ListGroups.vue'),
+            path: '/kpi-unit/evaluate',
+            name: 'Đánh giá KPI nhân viên',
+            component: () => import('@/views/kpiUnit/Elavuate.vue'),
           },
         ],
       },
