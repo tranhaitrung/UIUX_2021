@@ -48,6 +48,56 @@ export default [
     ],
   },
   {
+    component: 'CNavGroup',
+    name: 'KPI cá nhân',
+    to: '/kpi-personals',
+    icon: 'cil-speedometer',
+    items: [
+      {
+        component: 'CNavItem',
+        name: 'Dashboard KPI cá nhân',
+        icon: 'cil-circle',
+        to: '/kpi-personals/dashboard',
+      },
+      {
+        component: 'CNavItem',
+        name: 'Khởi tạo KPI cá nhân',
+        to: '/kpi-personals/create',
+        icon: 'cil-circle',
+      },
+      {
+        component: 'CNavItem',
+        name: 'Quản lý KPI cá nhân',
+        to: '/kpi-personals/manager',
+        icon: 'cil-circle',
+      },
+    ],
+  },
+  {
+    component: 'CNavGroup',
+    name: 'Buttons',
+    to: '/buttons',
+    icon: 'cil-cursor',
+    items: [
+      {
+        component: 'CNavItem',
+        name: 'Buttons',
+        to: '/kpi-personals/dashboard',
+      },
+      {
+        component: 'CNavItem',
+        name: 'Button Groups',
+        to: '/kpi-personals/create',
+      },
+      {
+        component: 'CNavItem',
+        name: 'Dropdowns',
+        to: '/kpi-personals/manager',
+      },
+    ],
+  },
+
+  {
     component: 'CNavTitle',
     name: 'Theme',
   },

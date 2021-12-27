@@ -77,6 +77,38 @@ const routes = [
         ],
       },
       {
+        path: '/kpi-personals',
+        name: 'KPI đơn vị',
+        component: {
+          render() {
+            return h(resolveComponent('router-view'))
+          },
+        },
+        redirect: '/kpi-personals/dashboard',
+        children: [
+          {
+            path: '/kpi-unit/dashboard-unit',
+            name: 'Dashboard KPI cá nhân',
+            component: () => import('@/views/personkpi/DashboardKPI.vue'),
+          },
+          {
+            path: '/kpi-personals/manager',
+            name: 'Quản lý KPI cá nhân',
+            component: () => import('@/views/personkpi/ManageKPI.vue'),
+          },
+          {
+            path: '/kpi-personals/create',
+            name: 'Tạo KPI cá nhân',
+            component: () => import('@/views/personkpi/CreateKPI.vue'),
+          },
+          {
+            path: '/base/collapses',
+            name: 'Collapses',
+            component: () => import('@/views/base/Collapses.vue'),
+          },
+        ],
+      },
+      {
         path: '/base',
         name: 'Base',
         component: {
