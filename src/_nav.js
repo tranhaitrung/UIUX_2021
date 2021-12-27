@@ -74,30 +74,6 @@ export default [
     ],
   },
   {
-    component: 'CNavGroup',
-    name: 'Buttons',
-    to: '/buttons',
-    icon: 'cil-cursor',
-    items: [
-      {
-        component: 'CNavItem',
-        name: 'Buttons',
-        to: '/kpi-personals/dashboard',
-      },
-      {
-        component: 'CNavItem',
-        name: 'Button Groups',
-        to: '/kpi-personals/create',
-      },
-      {
-        component: 'CNavItem',
-        name: 'Dropdowns',
-        to: '/kpi-personals/manager',
-      },
-    ],
-  },
-
-  {
     component: 'CNavTitle',
     name: 'Theme',
   },

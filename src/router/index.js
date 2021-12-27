@@ -78,7 +78,7 @@ const routes = [
       },
       {
         path: '/kpi-personals',
-        name: 'KPI đơn vị',
+        name: 'KPI cá nhân',
         component: {
           render() {
             return h(resolveComponent('router-view'))
@@ -87,7 +87,7 @@ const routes = [
         redirect: '/kpi-personals/dashboard',
         children: [
           {
-            path: '/kpi-unit/dashboard-unit',
+            path: '/kpi-personals/dashboard',
             name: 'Dashboard KPI cá nhân',
             component: () => import('@/views/personkpi/DashboardKPI.vue'),
           },
@@ -100,11 +100,6 @@ const routes = [
             path: '/kpi-personals/create',
             name: 'Tạo KPI cá nhân',
             component: () => import('@/views/personkpi/CreateKPI.vue'),
-          },
-          {
-            path: '/base/collapses',
-            name: 'Collapses',
-            component: () => import('@/views/base/Collapses.vue'),
           },
         ],
       },
