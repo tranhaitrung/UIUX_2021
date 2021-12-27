@@ -98,7 +98,7 @@ const routes = [
           },
           {
             path: '/kpi-personals/create',
-            name: 'Tạo KPI cá nhân',
+            name: 'Khởi tạo KPI cá nhân',
             component: () => import('@/views/personkpi/CreateKPI.vue'),
           },
         ],
