@@ -60,14 +60,14 @@ const routes = [
             component: () => import('@/views/kpiUnit/ManageUnit.vue'),
           },
           {
-            path: '/base/carousels',
-            name: 'Carousels',
-            component: () => import('@/views/base/Carousels.vue'),
+            path: '/kpi-unit/analyst',
+            name: 'Phân tích tính hợp lý trong thiết lập KPI đơn vị',
+            component: () => import('@/views/kpiUnit/Analyst.vue'),
           },
           {
-            path: '/base/collapses',
-            name: 'Collapses',
-            component: () => import('@/views/base/Collapses.vue'),
+            path: '/kpi-unit/dashboard-member',
+            name: 'Dashboard KPI nhân viên',
+            component: () => import('@/views/kpiUnit/DashboardMember.vue'),
           },
           {
             path: '/kpi-unit/evaluate',

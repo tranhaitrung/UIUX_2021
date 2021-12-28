@@ -32,13 +32,13 @@
       <CRow class="select">
         <input type="month" />
       </CRow>
-      <div style="width: 10px"></div>
+      <div style="width: 110px"></div>
       <CButton color="success" style="width: 100px">Tìm kiếm</CButton>
     </CRow>
     <CRow class="space_between">
       <CButton
         color="info"
-        style="width: 200px"
+        style="width: 150px"
         @click="
           () => {
             visibleScrollableDemo = true
@@ -46,7 +46,7 @@
         "
         >Sao chép KPI</CButton
       >
-      <CButton color="info" style="width: 200px">Xuất báo cáo</CButton>
+      <CButton color="info" style="width: 120px">Xuất báo cáo</CButton>
     </CRow>
     <div style="height: 20px"></div>
     <CTable>
