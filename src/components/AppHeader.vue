@@ -21,7 +21,7 @@
       <CHeaderNav>
         <CNavItem>
           <CNavLink href="#">
-            <CIcon class="mx-2" icon="cil-bell" size="lg" />
+            <question-filled style="width: 1.4em; height: 1.4em" />
           </CNavLink>
         </CNavItem>
         <CNavItem>
@@ -31,7 +31,7 @@
         </CNavItem>
         <CNavItem>
           <CNavLink href="#">
-            <CIcon class="mx-2" icon="cilTranslate" size="lg" />
+            <CIcon class="mx-2" icon="cil-bell" size="lg" />
           </CNavLink>
         </CNavItem>
         <AppHeaderDropdownAccnt />
@@ -48,11 +48,13 @@
 import AppBreadcrumb from './AppBreadcrumb'
 import AppHeaderDropdownAccnt from './AppHeaderDropdownAccnt'
 import { logo } from '@/assets/brand/logo'
+import { QuestionFilled } from '@element-plus/icons-vue'
 export default {
   name: 'AppHeader',
   components: {
     AppBreadcrumb,
     AppHeaderDropdownAccnt,
+    QuestionFilled,
   },
   setup() {
     return {
