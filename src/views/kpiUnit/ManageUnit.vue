@@ -46,7 +46,9 @@
         "
         >Sao chép KPI</CButton
       >
-      <CButton color="info" style="width: 120px">Xuất báo cáo</CButton>
+      <CButton color="info" style="width: 120px" @click="exportBaocao">
+        Xuất báo cáo
+      </CButton>
     </CRow>
     <div style="height: 20px"></div>
     <CTable>
@@ -285,13 +287,34 @@
 </template>
 
 <script>
+import { ElNotification } from 'element-plus'
 export default {
   name: 'Dashboard KPI đơn vị',
   data() {
     return {
       visibleScrollableDemo: false,
       visibleDataDemo: false,
+      randomExport: true,
     }
+  },
+  methods: {
+    exportBaocao() {
+      if (this.randomExport) {
+        ElNotification({
+          title: 'Thành công',
+          message: 'Bạn đã xuất báo cáo thành công',
+          type: 'success',
+        })
+        this.randomExport = false
+      } else {
+        ElNotification({
+          title: 'Lỗi',
+          message: 'Xuất báo cáo thất bại. Hãy thử lại',
+          type: 'error',
+        })
+        this.randomExport = true
+      }
+    },
   },
 }
 </script>
