@@ -10,6 +10,7 @@ import DocsCallout from '@/components/DocsCallout'
 import DocsExample from '@/components/DocsExample'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
+import '@element-plus/icons-vue'
 
 const app = createApp(App)
 app.use(store)
