@@ -494,7 +494,7 @@ export default {
     this.score = count
   },
   methods: {
-    calculateScore(object) {
+    calculateScore(row) {
       var count = 0
       for (let i = 0; i < this.total; i++) {
         count = count + parseInt(this.tableData[i].score)
@@ -513,7 +513,7 @@ export default {
           type: 'success',
         })
       }
-      object.isRead = true
+      row.isRead = true
     },
     countSelected() {
       var count = 0
@@ -538,6 +538,8 @@ export default {
     saveNew(row) {
       row.isRead = true
       row.isNew = false
+      this.score = this.score + parseInt(row.score)
+      //this.calculateScore(row)
       ElMessage({
         showClose: true,
         message: 'Thêm mục tiêu thành công',
