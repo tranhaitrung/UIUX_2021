@@ -3,30 +3,37 @@
     <el-col :span="24">
       <h3>Khởi tạo KPI cá nhân</h3>
       <el-row :span="24" style="margin-top: 20px; width: 100%">
-        <el-col :span="5">
+        <el-col :span="7">
           <div class="row">
-            <label for="fromDate" class="col-sm-3 col-form-label"> Từ </label>
-            <div class="col-sm-9">
-              <input type="date" class="form-control" id="toDate" />
-            </div>
-          </div>
-        </el-col>
-        <el-col :span="5">
-          <div class="row">
-            <label align="center" for="toDate" class="col-sm-3 col-form-label">
-              tới
+            <label for="fromDate" class="col-sm-5 col-form-label">
+              Chọn KPI đơn vị
             </label>
-            <div class="col-sm-9">
-              <input type="date" class="form-control" id="toDate" />
+            <div class="col-sm-7">
+              <el-select
+                v-model="searchKPI"
+                clearable
+                placeholder="Chọn KPI đơn vị"
+                style="width: 100%"
+              >
+                <el-option
+                  v-for="item in kpiFrom.unitKpiList"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value"
+                >
+                </el-option>
+              </el-select>
             </div>
           </div>
         </el-col>
         <el-col :span="3" align="center">
-          <el-button type="success" style="width: 100px">Xem</el-button>
+          <el-button type="success" style="width: 100px" @click="search">
+            Xem
+          </el-button>
         </el-col>
       </el-row>
     </el-col>
-    <div style="margin-top: 20px; width: 100%">
+    <div style="margin-top: 20px; width: 100%" v-if="isNotNull">
       <div style="background-color: #ffffff">
         <div>
           <el-row :gutter="10">
@@ -97,7 +104,9 @@
           </span>
           <span style="float: right; margin: 10px">
             <div style="display: flex; flex-direction: column" align="center">
-              <el-button type="danger"> Xóa mục tiêu đã chọn </el-button>
+              <el-button type="danger" @click="removeButton">
+                Xóa mục tiêu đã chọn
+              </el-button>
               <span style="font-size: 14px">
                 {{ totalSelect }} mục tiêu đã chọn
               </span>
@@ -213,7 +222,7 @@
                     style="margin-left: 10px"
                     size="sm"
                     v-model="scope.row.isSelect"
-                    @click="countSelected"
+                    @change="countSelected"
                   />
                 </div>
               </template>
@@ -222,17 +231,187 @@
         </div>
       </div>
     </div>
+    <div style="margin-top: 20px; width: 100%" v-else>
+      <div style="background-color: #ffffff; height: 200px">
+        <div>
+          <el-row :gutter="10">
+            <el-col :span="2" style="margin-left: 10px">
+              <div class="bg-purple" @click="addKPIDialog = true">
+                <div class="grid-content">
+                  <calendar
+                    style="width: 1em; height: 1em; margin-right: 8px"
+                  />
+                  <span>Khởi tạo KPI</span>
+                </div>
+              </div>
+            </el-col>
+            <el-col :span="3">
+              <div class="bg-purple">
+                <div class="grid-content">
+                  <copy-document
+                    style="width: 1em; height: 1em; margin-right: 8px"
+                  />
+                  <span>Sao chép KPI đơn vị cha</span>
+                </div>
+              </div>
+            </el-col>
+          </el-row>
+        </div>
+        <div style="margin-top: 20px; width: 100%; margin-left: 10px">
+          <h5>KPI cá nhân giai đoạn 1/2022 - 3/2022</h5>
+          <span style="font-size: 15px">
+            <span> Chưa có KPI nào được khởi tạo trong giai đoạn này</span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <el-dialog
+        v-model="addKPIDialog"
+        title="Khởi tạo KPI cá nhân"
+        width="50%"
+        destroy-on-close
+        center
+      >
+        <div>
+          <el-form :label-position="right" label-width="150px" :model="kpiFrom">
+            <el-form-item label="Đơn vị">
+              <el-input v-model="kpiFrom.unit" readonly></el-input>
+            </el-form-item>
+            <el-form-item label="Chọn KPI đơn vị">
+              <el-select
+                v-model="kpiFrom.unitKPI"
+                clearable
+                placeholder="Chọn KPI đơn vị"
+                style="width: 100%"
+              >
+                <el-option
+                  v-for="item in kpiFrom.unitKpiList"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value"
+                >
+                </el-option>
+              </el-select>
+            </el-form-item>
+            <el-form-item label="Người phê duyệt">
+              <el-select
+                v-model="kpiFrom.approve"
+                clearable
+                placeholder="Người phê duyệt"
+                style="width: 100%"
+              >
+                <el-option
+                  v-for="item in kpiFrom.approveList"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value"
+                >
+                </el-option>
+              </el-select>
+            </el-form-item>
+            <el-form-item label="Mục tiêu mặc định">
+              <div>
+                <ul>
+                  <li>Hỗ trợ công việc</li>
+                  <li>Phê duyệt công việc</li>
+                </ul>
+              </div>
+            </el-form-item>
+          </el-form>
+        </div>
+        <template #footer>
+          <span class="dialog-footer">
+            <el-button @click="addKPIDialog = false">Hủy</el-button>
+            <el-button type="primary" @click="showKpiDetail">
+              Tạo mới
+            </el-button>
+          </span>
+        </template>
+      </el-dialog>
+      <el-dialog
+        v-model="confirmDialog"
+        title="Xác nhận xóa mục tiêu đã chọn"
+        width="50%"
+        destroy-on-close
+        center
+      >
+        <div>
+          <div align="center">
+            <h5 style="color: red">
+              Sau khi xóa dữ liệu sẽ không thể khôi phục
+            </h5>
+            <h5>Bạn có thực sự muốn xóa</h5>
+          </div>
+          <div>
+            <span>Danh sách mục tiêu muốn xóa</span>
+            <ul>
+              <div v-for="(k, index) in tableData" :key="index">
+                <li v-if="k.isSelect">{{ k.name }}</li>
+              </div>
+            </ul>
+          </div>
+        </div>
+        <template #footer>
+          <span class="dialog-footer">
+            <el-button @click="confirmDialog = false">Hủy</el-button>
+            <el-button type="danger" @click="removeMucTieu"> Xóa </el-button>
+          </span>
+        </template>
+      </el-dialog>
+    </div>
   </el-row>
 </template>
 
 <script>
-import { Edit, CirclePlus, Delete, Promotion } from '@element-plus/icons-vue'
+import {
+  Edit,
+  CirclePlus,
+  Delete,
+  Promotion,
+  CopyDocument,
+  Calendar,
+} from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
 export default {
   name: 'Khởi tạo KPI cá nhân',
-  components: { Edit, CirclePlus, Delete, Promotion },
+  components: { Edit, CirclePlus, Delete, Promotion, CopyDocument, Calendar },
   data() {
     return {
+      kpiFrom: {
+        unit: 'UIUX_09',
+        unitKPI: '',
+        approve: '',
+        unitKpiList: [
+          {
+            value: 'kpi1',
+            label: 'Từ 06/2021 đến 09/2021 (Tiêu thụ hàng tồn đọng trong kho)',
+          },
+          {
+            value: 'kpi2',
+            label:
+              'Từ 01/10/2021 đến 31/10/2021 (Khảo sát thị trường để chuẩn bị nhập hàng tiêu thụ dịp tết)',
+          },
+          {
+            value: 'kpi3',
+            label: 'Từ 01/11/2021 đến 31/02/2022 (Tiệu thụ hàng tồn đọng)',
+          },
+        ],
+        approveList: [
+          {
+            value: 'Option1',
+            label: 'Trân Ngọc Phiên',
+          },
+          {
+            value: 'Option2',
+            label: 'Trần Hải Trung',
+          },
+          {
+            value: 'Option3',
+            label: 'Phạm Trọng Toàn',
+          },
+        ],
+      },
       tableData: [
         {
           name: 'Phê duyệt công việc',
@@ -300,6 +479,10 @@ export default {
           label: 'Thống kê, báo cáo',
         },
       ],
+      addKPIDialog: false,
+      isNotNull: false,
+      searchKPI: '',
+      confirmDialog: false,
     }
   },
   created() {
@@ -363,6 +546,46 @@ export default {
     },
     cancelAdd(row) {
       this.tableData.pop(row)
+    },
+    search() {
+      if (this.searchKPI === 'kpi1' || this.searchKPI === 'kpi2') {
+        this.isNotNull = true
+      } else {
+        this.isNotNull = false
+      }
+    },
+    showKpiDetail() {
+      this.isNotNull = true
+      this.addKPIDialog = false
+    },
+    removeButton() {
+      if (this.totalSelect === 0) {
+        ElMessage({
+          showClose: true,
+          message: 'Bạn chưa chọn mục tiêu nào',
+          type: 'error',
+        })
+        return
+      }
+      this.confirmDialog = true
+    },
+    removeMucTieu() {
+      for (let i = 0; i < this.tableData.length; i++) {
+        if (this.tableData[i].isSelect) {
+          this.tableData.pop(this.tableData[i])
+        }
+      }
+      this.score = 0
+      for (let i = 0; i < this.tableData.length; i++) {
+        this.tableData[i].isSelect = false
+        this.score = this.score + parseInt(this.tableData[i].score)
+      }
+      ElMessage({
+        showClose: true,
+        message: 'Xóa mục tiêu thành công',
+        type: 'success',
+      })
+      this.confirmDialog = false
     },
   },
 }
