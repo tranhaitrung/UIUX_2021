@@ -2,8 +2,7 @@
   <CColumn>
     <h4>Đánh giá KPI nhân viên</h4>
     <CRow class="align-items-center margin-2">
-      Đơn vị
-      <div style="width: 10px"></div>
+      <div style="width: 100px">Đơn vị</div>
       <CRow class="align-items-center select">
         <CFormSelect aria-label="Default select example">
           <option value="1">UIUX_09</option>
@@ -11,8 +10,7 @@
         </CFormSelect>
       </CRow>
       <div style="width: 10px"></div>
-      Trạng thái
-      <div style="width: 10px"></div>
+      <div style="width: 100px">Trạng thái</div>
       <CRow class="select">
         <CFormSelect aria-label="Default select example">
           <option value="1">Tất cả trạng thái</option>
@@ -20,144 +18,264 @@
           <option value="3">Đã kích hoạt</option>
         </CFormSelect>
       </CRow>
+      <div style="width: 10px"></div>
+      Người phê duyệt
+      <div style="width: 10px"></div>
+      <CRow class="align-items-center select">
+        <CFormSelect aria-label="Default select example">
+          <option value="1">Trần Ngọc Phiên</option>
+          <option value="2">Trần Hải Trung</option>
+        </CFormSelect>
+      </CRow>
+      <div style="width: 10px"></div>
+      Nhân viên
+      <div style="width: 10px"></div>
+      <CRow class="select">
+        <CFormSelect aria-label="Default select example">
+          <option value="1">Trần Ngọc Phiên</option>
+          <option value="2">Trần Hải Trung</option>
+          <option value="3">Phạm Trọng Toàn</option>
+          <option value="4">Đỗ Văn Thông</option>
+        </CFormSelect>
+      </CRow>
     </CRow>
+    <div style="height: 10px"></div>
     <CRow class="align-items-center margin-2">
-      Đơn vị
-      <div style="width: 10px"></div>
-      <CRow class="align-items-center select">
-        <CFormSelect aria-label="Default select example">
-          <option value="1">UIUX_09</option>
-          <option value="2">Ban kiểm soát</option>
-        </CFormSelect>
-      </CRow>
-      <div style="width: 10px"></div>
-      Trạng thái
-      <div style="width: 10px"></div>
+      <div style="width: 100px">Từ tháng</div>
       <CRow class="select">
-        <CFormSelect aria-label="Default select example">
-          <option value="1">Tất cả trạng thái</option>
-          <option value="2">Đang thiết lập</option>
-          <option value="3">Đã kích hoạt</option>
-        </CFormSelect>
+        <input type="month" />
       </CRow>
-    </CRow>
-    <CRow class="space_between">
-      <CButton
-        color="info"
-        style="width: 200px"
-        @click="
-          () => {
-            visibleScrollableDemo = true
-          }
-        "
-        >Sao chép KPI</CButton
-      >
-      <CButton color="info" style="width: 200px">Xuất báo cáo</CButton>
+      <div style="width: 10px"></div>
+      <div style="width: 100px">Đến tháng</div>
+      <CRow class="select">
+        <input type="month" />
+      </CRow>
+      <div style="width: 10px"></div>
+      <CButton color="success" style="width: 150px">Tìm kiếm</CButton>
     </CRow>
     <div style="height: 20px"></div>
     <CTable>
       <CTableHead>
         <CTableRow>
+          <CTableHeaderCell scope="col">Tên</CTableHeaderCell>
           <CTableHeaderCell scope="col">Thời gian</CTableHeaderCell>
           <CTableHeaderCell scope="col">Trạng thái</CTableHeaderCell>
-          <CTableHeaderCell scope="col">Điểm tự động</CTableHeaderCell>
-          <CTableHeaderCell scope="col">Điểm tự đánh giá</CTableHeaderCell>
-          <CTableHeaderCell scope="col">Điểm người phê duyệt</CTableHeaderCell>
-          <CTableHeaderCell scope="col">Xem chi tiết</CTableHeaderCell>
+          <CTableHeaderCell scope="col">Đánh giá tháng</CTableHeaderCell>
+          <CTableHeaderCell scope="col">Đánh giá tuần</CTableHeaderCell>
+          <CTableHeaderCell scope="col">Phê duyệt</CTableHeaderCell>
+          <CTableHeaderCell scope="col">Đánh giá</CTableHeaderCell>
         </CTableRow>
       </CTableHead>
       <CTableBody>
         <CTableRow>
+          <CTableDataCell>Trần Ngọc Phiên</CTableDataCell>
           <CTableDataCell scope="row">T9-2021</CTableDataCell>
           <CTableDataCell
             ><CButton color="success" shape="rounded-10">Đã kích hoạt</CButton>
           </CTableDataCell>
-          <CTableDataCell>90</CTableDataCell>
-          <CTableDataCell>90</CTableDataCell>
-          <CTableDataCell>90</CTableDataCell>
+          <CTableDataCell>90-90-90</CTableDataCell>
+          <CTableDataCell>80-100-80</CTableDataCell>
           <CTableDataCell
             ><CButton color="info" shape="rounded-10"
-              >Xem chi tiết</CButton
-            ></CTableDataCell
-          >
+              ><CIcon :icon="cilShieldAlt" size="xl" /></CButton
+          ></CTableDataCell>
+          <CTableDataCell
+            ><CButton color="info" shape="rounded-10"
+              ><CIcon :icon="cilList" size="xl" /></CButton
+          ></CTableDataCell>
         </CTableRow>
         <CTableRow>
+          <CTableDataCell>Trần Ngọc Phiên</CTableDataCell>
           <CTableDataCell scope="row">T10-2021</CTableDataCell>
           <CTableDataCell
             ><CButton color="success" shape="rounded-10">Đã kích hoạt</CButton>
           </CTableDataCell>
-          <CTableDataCell>90</CTableDataCell>
-          <CTableDataCell>90</CTableDataCell>
-          <CTableDataCell>90</CTableDataCell>
+          <CTableDataCell>90-90-90</CTableDataCell>
+          <CTableDataCell>80-100-80</CTableDataCell>
           <CTableDataCell
             ><CButton color="info" shape="rounded-10"
-              >Xem chi tiết</CButton
-            ></CTableDataCell
-          >
+              ><CIcon :icon="cilShieldAlt" size="xl" /></CButton
+          ></CTableDataCell>
+          <CTableDataCell
+            ><CButton color="info" shape="rounded-10"
+              ><CIcon :icon="cilList" size="xl" /></CButton
+          ></CTableDataCell>
         </CTableRow>
         <CTableRow>
+          <CTableDataCell>Trần Ngọc Phiên</CTableDataCell>
           <CTableDataCell scope="row">T11-2021</CTableDataCell>
           <CTableDataCell
             ><CButton color="warning" shape="rounded-10"
               >Đang thiết lập</CButton
             >
           </CTableDataCell>
-          <CTableDataCell>90</CTableDataCell>
-          <CTableDataCell>90</CTableDataCell>
-          <CTableDataCell>90</CTableDataCell>
+          <CTableDataCell>90-90-90</CTableDataCell>
+          <CTableDataCell>80-100-80</CTableDataCell>
           <CTableDataCell
             ><CButton color="info" shape="rounded-10"
-              >Xem chi tiết</CButton
-            ></CTableDataCell
-          >
-        </CTableRow>
-        <CTableRow align="center">
-          <CTableDataCell scope="row">T12-2021</CTableDataCell>
-          <CTableDataCell
-            ><CButton color="warning" shape="rounded-10"
-              >Đang thiết lập</CButton
-            >
-          </CTableDataCell>
-          <CTableDataCell>90</CTableDataCell>
-          <CTableDataCell>90</CTableDataCell>
-          <CTableDataCell>90</CTableDataCell>
+              ><CIcon :icon="cilShieldAlt" size="xl" /></CButton
+          ></CTableDataCell>
           <CTableDataCell
             ><CButton color="info" shape="rounded-10"
-              >Xem chi tiết</CButton
-            ></CTableDataCell
-          >
+              ><CIcon :icon="cilList" size="xl" /></CButton
+          ></CTableDataCell>
         </CTableRow>
         <CTableRow>
-          <CTableDataCell scope="row">T1-2022</CTableDataCell>
+          <CTableDataCell>Trần Hải Trung</CTableDataCell>
+          <CTableDataCell scope="row">T9-2021</CTableDataCell>
           <CTableDataCell
-            ><CButton color="warning" shape="rounded-10"
-              >Đang thiết lập</CButton
-            >
+            ><CButton color="success" shape="rounded-10">Đã kích hoạt</CButton>
           </CTableDataCell>
-          <CTableDataCell>90</CTableDataCell>
-          <CTableDataCell>90</CTableDataCell>
-          <CTableDataCell>90</CTableDataCell>
+          <CTableDataCell>90-90-90</CTableDataCell>
+          <CTableDataCell>80-100-80</CTableDataCell>
           <CTableDataCell
             ><CButton color="info" shape="rounded-10"
-              >Xem chi tiết</CButton
-            ></CTableDataCell
-          >
+              ><CIcon :icon="cilShieldAlt" size="xl" /></CButton
+          ></CTableDataCell>
+          <CTableDataCell
+            ><CButton color="info" shape="rounded-10"
+              ><CIcon :icon="cilList" size="xl" /></CButton
+          ></CTableDataCell>
         </CTableRow>
-        <CTableRow v-if="visibleDataDemo">
-          <CTableDataCell scope="row">T2-2022</CTableDataCell>
+        <CTableRow>
+          <CTableDataCell>Trần Hải Trung</CTableDataCell>
+          <CTableDataCell scope="row">T10-2021</CTableDataCell>
+          <CTableDataCell
+            ><CButton color="success" shape="rounded-10">Đã kích hoạt</CButton>
+          </CTableDataCell>
+          <CTableDataCell>90-90-90</CTableDataCell>
+          <CTableDataCell>80-100-80</CTableDataCell>
+          <CTableDataCell
+            ><CButton color="info" shape="rounded-10"
+              ><CIcon :icon="cilShieldAlt" size="xl" /></CButton
+          ></CTableDataCell>
+          <CTableDataCell
+            ><CButton color="info" shape="rounded-10"
+              ><CIcon :icon="cilList" size="xl" /></CButton
+          ></CTableDataCell>
+        </CTableRow>
+        <CTableRow>
+          <CTableDataCell>Trần Hải Trung</CTableDataCell>
+          <CTableDataCell scope="row">T10-2021</CTableDataCell>
+          <CTableDataCell
+            ><CButton color="success" shape="rounded-10">Đã kích hoạt</CButton>
+          </CTableDataCell>
+          <CTableDataCell>90-90-90</CTableDataCell>
+          <CTableDataCell>80-100-80</CTableDataCell>
+          <CTableDataCell
+            ><CButton color="info" shape="rounded-10"
+              ><CIcon :icon="cilShieldAlt" size="xl" /></CButton
+          ></CTableDataCell>
+          <CTableDataCell
+            ><CButton color="info" shape="rounded-10"
+              ><CIcon :icon="cilList" size="xl" /></CButton
+          ></CTableDataCell>
+        </CTableRow>
+        <CTableRow>
+          <CTableDataCell>Trần Hải Trung</CTableDataCell>
+          <CTableDataCell scope="row">T11-2021</CTableDataCell>
           <CTableDataCell
             ><CButton color="warning" shape="rounded-10"
               >Đang thiết lập</CButton
             >
           </CTableDataCell>
-          <CTableDataCell>90</CTableDataCell>
-          <CTableDataCell>90</CTableDataCell>
-          <CTableDataCell>90</CTableDataCell>
+          <CTableDataCell>90-90-90</CTableDataCell>
+          <CTableDataCell>80-100-80</CTableDataCell>
           <CTableDataCell
             ><CButton color="info" shape="rounded-10"
-              >Xem chi tiết</CButton
-            ></CTableDataCell
-          >
+              ><CIcon :icon="cilShieldAlt" size="xl" /></CButton
+          ></CTableDataCell>
+          <CTableDataCell
+            ><CButton color="info" shape="rounded-10"
+              ><CIcon :icon="cilList" size="xl" /></CButton
+          ></CTableDataCell>
+        </CTableRow>
+        <CTableRow>
+          <CTableDataCell>Phạm Trọng Toàn</CTableDataCell>
+          <CTableDataCell scope="row">T9-2021</CTableDataCell>
+          <CTableDataCell
+            ><CButton color="success" shape="rounded-10">Đã kích hoạt</CButton>
+          </CTableDataCell>
+          <CTableDataCell>90-90-90</CTableDataCell>
+          <CTableDataCell>80-100-80</CTableDataCell>
+          <CTableDataCell
+            ><CButton color="info" shape="rounded-10"
+              ><CIcon :icon="cilShieldAlt" size="xl" /></CButton
+          ></CTableDataCell>
+          <CTableDataCell
+            ><CButton color="info" shape="rounded-10"
+              ><CIcon :icon="cilList" size="xl" /></CButton
+          ></CTableDataCell>
+        </CTableRow>
+        <CTableRow>
+          <CTableDataCell>Phạm Trọng Toàn</CTableDataCell>
+          <CTableDataCell scope="row">T9-2021</CTableDataCell>
+          <CTableDataCell
+            ><CButton color="success" shape="rounded-10">Đã kích hoạt</CButton>
+          </CTableDataCell>
+          <CTableDataCell>90-90-90</CTableDataCell>
+          <CTableDataCell>80-100-80</CTableDataCell>
+          <CTableDataCell
+            ><CButton color="info" shape="rounded-10"
+              ><CIcon :icon="cilShieldAlt" size="xl" /></CButton
+          ></CTableDataCell>
+          <CTableDataCell
+            ><CButton color="info" shape="rounded-10"
+              ><CIcon :icon="cilList" size="xl" /></CButton
+          ></CTableDataCell>
+        </CTableRow>
+        <CTableRow>
+          <CTableDataCell>Phạm Trọng Toàn</CTableDataCell>
+          <CTableDataCell scope="row">T10-2021</CTableDataCell>
+          <CTableDataCell
+            ><CButton color="success" shape="rounded-10">Đã kích hoạt</CButton>
+          </CTableDataCell>
+          <CTableDataCell>90-90-90</CTableDataCell>
+          <CTableDataCell>80-100-80</CTableDataCell>
+          <CTableDataCell
+            ><CButton color="info" shape="rounded-10"
+              ><CIcon :icon="cilShieldAlt" size="xl" /></CButton
+          ></CTableDataCell>
+          <CTableDataCell
+            ><CButton color="info" shape="rounded-10"
+              ><CIcon :icon="cilList" size="xl" /></CButton
+          ></CTableDataCell>
+        </CTableRow>
+        <CTableRow>
+          <CTableDataCell>Phạm Trọng Toàn</CTableDataCell>
+          <CTableDataCell scope="row">T11-2021</CTableDataCell>
+          <CTableDataCell
+            ><CButton color="warning" shape="rounded-10"
+              >Đang thiết lập</CButton
+            >
+          </CTableDataCell>
+          <CTableDataCell>90-90-90</CTableDataCell>
+          <CTableDataCell>80-100-80</CTableDataCell>
+          <CTableDataCell
+            ><CButton color="info" shape="rounded-10"
+              ><CIcon :icon="cilShieldAlt" size="xl" /></CButton
+          ></CTableDataCell>
+          <CTableDataCell
+            ><CButton color="info" shape="rounded-10"
+              ><CIcon :icon="cilList" size="xl" /></CButton
+          ></CTableDataCell>
+        </CTableRow>
+        <CTableRow>
+          <CTableDataCell>Đỗ Văn Thông</CTableDataCell>
+          <CTableDataCell scope="row">T9-2021</CTableDataCell>
+          <CTableDataCell
+            ><CButton color="success" shape="rounded-10">Đã kích hoạt</CButton>
+          </CTableDataCell>
+          <CTableDataCell>90-90-90</CTableDataCell>
+          <CTableDataCell>80-100-80</CTableDataCell>
+          <CTableDataCell
+            ><CButton color="info" shape="rounded-10"
+              ><CIcon :icon="cilShieldAlt" size="xl" /></CButton
+          ></CTableDataCell>
+          <CTableDataCell
+            ><CButton color="info" shape="rounded-10"
+              ><CIcon :icon="cilList" size="xl" /></CButton
+          ></CTableDataCell>
         </CTableRow>
       </CTableBody>
     </CTable>
@@ -291,10 +409,17 @@
 </template>
 
 <script>
+import { CIcon } from '@coreui/icons-vue'
+import { cilList, cilShieldAlt } from '@coreui/icons'
 export default {
   name: 'Dashboard KPI đơn vị',
+  components: {
+    CIcon,
+  },
   data() {
     return {
+      cilList,
+      cilShieldAlt,
       visibleScrollableDemo: false,
       visibleDataDemo: false,
     }
@@ -303,8 +428,8 @@ export default {
 </script>
 <style scoped>
 .select {
-  height: 50px;
-  width: 160px;
+  height: 40px;
+  width: 180px;
 }
 .margin-2 {
   margin: 1px;

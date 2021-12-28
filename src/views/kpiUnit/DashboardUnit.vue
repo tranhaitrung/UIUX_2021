@@ -1,6 +1,6 @@
 <template>
   <CColumn>
-    <div>Dashboard KPI đơn vị</div>
+    <h4>Dashboard KPI đơn vị</h4>
     <CRow class="align-items-center margin-2">
       Đơn vị
       <div style="width: 10px"></div>
@@ -31,114 +31,29 @@
           Biểu đồ thống kê điểm KPI giữa các đơn vị tháng 12-2021
         </CAccordionHeader>
         <CAccordionBody>
-          <CChartLine :data="defaultData" />
+          <CChartBar :data="bar" />
         </CAccordionBody>
       </CAccordionItem>
       <CAccordionItem :item-key="2">
         <CAccordionHeader>
           Xu hướng thực hiện mục tiêu của nhân viên UIUX_09 tháng 12-2021
         </CAccordionHeader>
-        <CAccordionBody>
-          <CChart
-            type="bar"
-            :data="{
-              labels: [
-                'January',
-                'February',
-                'March',
-                'April',
-                'May',
-                'June',
-                'July',
-              ],
-              datasets: [
-                {
-                  label: 'GitHub Commits',
-                  backgroundColor: '#f87979',
-                  data: [40, 20, 12, 39, 10, 40, 39, 80, 40],
-                },
-              ],
-            }"
-            labels="months"
-          ></CChart>
-        </CAccordionBody>
+        <CAccordionBody> </CAccordionBody>
       </CAccordionItem>
       <CAccordionItem :item-key="3">
         <CAccordionHeader>
           Phân phối KPI UIUX_09 tháng 12-2021
         </CAccordionHeader>
         <CAccordionBody>
-          <CChart
-            type="line"
-            :wrapper="false"
-            :data="{
-              labels: [
-                'January',
-                'February',
-                'March',
-                'April',
-                'May',
-                'June',
-                'July',
-              ],
-              datasets: [
-                {
-                  label: 'My First dataset',
-                  backgroundColor: 'rgba(220, 220, 220, 0.2)',
-                  borderColor: 'rgba(220, 220, 220, 1)',
-                  pointBackgroundColor: 'rgba(220, 220, 220, 1)',
-                  pointBorderColor: '#fff',
-                  data: [40, 20, 12, 39, 10, 40, 39],
-                },
-                {
-                  label: 'My Second dataset',
-                  backgroundColor: 'rgba(151, 187, 205, 0.2)',
-                  borderColor: 'rgba(151, 187, 205, 1)',
-                  pointBackgroundColor: 'rgba(151, 187, 205, 1)',
-                  pointBorderColor: '#fff',
-                  data: [50, 12, 28, 29, 7, 25, 12],
-                },
-              ],
-            }"
-          />
+          <div style="width: 500px; height: 500px">
+            <CChartPie :data="pie" />
+          </div>
         </CAccordionBody>
       </CAccordionItem>
       <CAccordionItem :item-key="4">
         <CAccordionHeader> Kết quả KPI UIUX_09 </CAccordionHeader>
         <CAccordionBody>
-          <CChart
-            type="line"
-            :wrapper="false"
-            :data="{
-              labels: [
-                'January',
-                'February',
-                'March',
-                'April',
-                'May',
-                'June',
-                'July',
-              ],
-              datasets: [
-                {
-                  label: 'My First dataset',
-                  backgroundColor: 'rgba(220, 220, 220, 0.2)',
-                  borderColor: 'rgba(220, 220, 220, 1)',
-                  pointBackgroundColor: 'rgba(220, 220, 220, 1)',
-                  pointBorderColor: '#fff',
-                  data: [40, 20, 12, 39, 10, 40, 39],
-                },
-                {
-                  label: 'My Second dataset',
-                  backgroundColor: 'rgba(151, 187, 205, 0.2)',
-                  borderColor: 'rgba(151, 187, 205, 1)',
-                  pointBackgroundColor: 'rgba(151, 187, 205, 1)',
-                  pointBorderColor: '#fff',
-                  data: [50, 12, 28, 29, 7, 25, 12],
-                },
-              ],
-            }"
-          />
+          <CChartBar :data="bar2" />
         </CAccordionBody>
       </CAccordionItem>
     </CAccordion>
@@ -146,24 +61,66 @@
 </template>
 
 <script>
-import { CChartLine } from '@coreui/vue-chartjs'
+import { CChartBar } from '@coreui/vue-chartjs'
+import { CChartPie } from '@coreui/vue-chartjs'
+
 export default {
   name: 'Dashboard KPI đơn vị',
-  components: { CChartLine },
+  components: { CChartBar, CChartPie },
   computed: {
-    defaultData() {
+    bar() {
       return {
-        labels: ['months', 'a', 'b', 'c', 'd'],
+        labels: [
+          'UIUX_09',
+          'UIUX_09_01',
+          'UIUX_09_02',
+          'UIUX_09_03',
+          'UIUX_09_04',
+        ],
         datasets: [
           {
-            label: 'Data One',
-            backgroundColor: 'rgb(228,102,81,0.9)',
-            data: [30, 39, 10, 50, 30, 70, 35],
+            label: 'Điểm',
+            backgroundColor: '#f87979',
+            data: [75, 70, 70, 65, 70],
           },
+        ],
+      }
+    },
+    bar2() {
+      return {
+        labels: ['T9-2021', 'T10-2021', 'T11-2021', 'T12-2021'],
+        datasets: [
           {
-            label: 'Data Two',
-            backgroundColor: 'rgb(0,216,255,0.9)',
-            data: [39, 80, 40, 35, 40, 20, 45],
+            label: 'Điểm',
+            backgroundColor: '#f87979',
+            data: [75, 70, 70, 85],
+          },
+        ],
+      }
+    },
+    pie() {
+      return {
+        labels: [
+          'Hỗ trợ thực hiện công việc',
+          'Phê duyệt công việc',
+          'Sử dụng hệ thống',
+          'Tìm hiểu lý thuyết, tìm hiểu công nghệ',
+          'Thiết kế',
+          'Xây dựng kịch bản thử nghiệm',
+          'Đánh giá tính dùng được',
+        ],
+        datasets: [
+          {
+            backgroundColor: [
+              '#41B883',
+              '#E46651',
+              '#00D8FF',
+              '#DD1B16',
+              '#E512E3',
+              '#3412EE',
+              '#DBE2D1',
+            ],
+            data: [10, 10, 20, 20, 20, 10, 10],
           },
         ],
       }
