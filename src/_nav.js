@@ -1,19 +1,15 @@
 export default [
   {
     component: 'CNavItem',
-    name: 'Dashboard',
-    to: '/dashboard',
-    icon: 'cil-speedometer',
-    badge: {
-      color: 'primary',
-      text: 'NEW',
-    },
+    name: 'Trang chủ',
+    to: '/',
+    icon: 'cil-home',
   },
   {
     component: 'CNavGroup',
     name: 'KPI đơn vị',
     to: '/kpi-unit',
-    icon: 'cil-puzzle',
+    icon: 'cil-speedometer',
     items: [
       {
         component: 'CNavItem',
