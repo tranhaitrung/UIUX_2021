@@ -1,40 +1,44 @@
 <template>
   <CColumn>
-    <h4>Quản lý KPI đơn vị</h4>
-    <CRow class="align-items-center margin-2">
-      Đơn vị
-      <div style="width: 10px"></div>
+    <div
+      style="display: flex; justify-content: space-between"
+      class="space-between"
+    >
+      <h4>Quản lý KPI đơn vị</h4>
+      <el-button color="info" style="width: 120px" @click="exportBaocao">
+        Xuất báo cáo
+      </el-button>
+    </div>
+    <div
+      style="display: flex; justify-content: space-between"
+      class="align-items-center"
+    >
+      <div style="width: 80px">Đơn vị</div>
       <CRow class="align-items-center select">
         <CFormSelect aria-label="Default select example">
           <option value="1">UIUX_09</option>
           <option value="2">Ban kiểm soát</option>
         </CFormSelect>
       </CRow>
-      <div style="width: 10px"></div>
-      Trạng thái
-      <div style="width: 10px"></div>
-      <CRow class="select">
+      <div style="width: 80px">Trạng thái</div>
+      <CRow class="align-items-center select">
         <CFormSelect aria-label="Default select example">
           <option value="1">Tất cả trạng thái</option>
           <option value="2">Đang thiết lập</option>
           <option value="3">Đã kích hoạt</option>
         </CFormSelect>
       </CRow>
-      <div style="width: 10px"></div>
-      Từ tháng
-      <div style="width: 10px"></div>
-      <CRow class="select">
-        <input type="month" />
+      <div style="width: 80px">Từ tháng</div>
+      <CRow class="align-items-center select">
+        <el-input type="month" />
       </CRow>
-      <div style="width: 10px"></div>
-      Đến tháng
-      <div style="width: 10px"></div>
-      <CRow class="select">
-        <input type="month" />
+      <div style="width: 80px">Đến tháng</div>
+      <CRow class="align-items-center select">
+        <el-input type="month" />
       </CRow>
       <div style="width: 110px"></div>
       <CButton color="success" style="width: 100px">Tìm kiếm</CButton>
-    </CRow>
+    </div>
     <CRow class="space_between">
       <CButton
         color="info"
@@ -46,117 +50,122 @@
         "
         >Sao chép KPI</CButton
       >
-      <CButton color="info" style="width: 120px" @click="exportBaocao">
-        Xuất báo cáo
-      </CButton>
     </CRow>
-    <div style="height: 20px"></div>
-    <CTable>
-      <CTableHead>
-        <CTableRow>
-          <CTableHeaderCell scope="col">Thời gian</CTableHeaderCell>
-          <CTableHeaderCell scope="col">Trạng thái</CTableHeaderCell>
-          <CTableHeaderCell scope="col">Điểm tự động</CTableHeaderCell>
-          <CTableHeaderCell scope="col">Điểm tự đánh giá</CTableHeaderCell>
-          <CTableHeaderCell scope="col">Điểm người phê duyệt</CTableHeaderCell>
-          <CTableHeaderCell scope="col">Xem chi tiết</CTableHeaderCell>
-        </CTableRow>
-      </CTableHead>
-      <CTableBody>
-        <CTableRow>
-          <CTableDataCell scope="row">T9-2021</CTableDataCell>
-          <CTableDataCell
-            ><CButton color="success" shape="rounded-10">Đã kích hoạt</CButton>
-          </CTableDataCell>
-          <CTableDataCell>90</CTableDataCell>
-          <CTableDataCell>90</CTableDataCell>
-          <CTableDataCell>90</CTableDataCell>
-          <CTableDataCell
-            ><CButton color="info" shape="rounded-10"
-              >Xem chi tiết</CButton
-            ></CTableDataCell
-          >
-        </CTableRow>
-        <CTableRow>
-          <CTableDataCell scope="row">T10-2021</CTableDataCell>
-          <CTableDataCell
-            ><CButton color="success" shape="rounded-10">Đã kích hoạt</CButton>
-          </CTableDataCell>
-          <CTableDataCell>90</CTableDataCell>
-          <CTableDataCell>90</CTableDataCell>
-          <CTableDataCell>90</CTableDataCell>
-          <CTableDataCell
-            ><CButton color="info" shape="rounded-10"
-              >Xem chi tiết</CButton
-            ></CTableDataCell
-          >
-        </CTableRow>
-        <CTableRow>
-          <CTableDataCell scope="row">T11-2021</CTableDataCell>
-          <CTableDataCell
-            ><CButton color="warning" shape="rounded-10"
-              >Đang thiết lập</CButton
+    <div style="height: 8px"></div>
+    <div style="background-color: white; padding: 8 px">
+      <CTable class="align-items-center">
+        <CTableHead>
+          <CTableRow>
+            <CTableHeaderCell scope="col">Thời gian</CTableHeaderCell>
+            <CTableHeaderCell scope="col">Trạng thái</CTableHeaderCell>
+            <CTableHeaderCell scope="col">Điểm tự động</CTableHeaderCell>
+            <CTableHeaderCell scope="col">Điểm tự đánh giá</CTableHeaderCell>
+            <CTableHeaderCell scope="col"
+              >Điểm người phê duyệt</CTableHeaderCell
             >
-          </CTableDataCell>
-          <CTableDataCell>90</CTableDataCell>
-          <CTableDataCell>90</CTableDataCell>
-          <CTableDataCell>90</CTableDataCell>
-          <CTableDataCell
-            ><CButton color="info" shape="rounded-10"
-              >Xem chi tiết</CButton
-            ></CTableDataCell
-          >
-        </CTableRow>
-        <CTableRow align="center">
-          <CTableDataCell scope="row">T12-2021</CTableDataCell>
-          <CTableDataCell
-            ><CButton color="warning" shape="rounded-10"
-              >Đang thiết lập</CButton
+            <CTableHeaderCell scope="col">Xem chi tiết</CTableHeaderCell>
+          </CTableRow>
+        </CTableHead>
+        <CTableBody>
+          <CTableRow>
+            <CTableDataCell scope="row">T9-2021</CTableDataCell>
+            <CTableDataCell
+              ><CButton color="success" shape="rounded-10" class="width_100"
+                >Đã kích hoạt</CButton
+              >
+            </CTableDataCell>
+            <CTableDataCell>90</CTableDataCell>
+            <CTableDataCell>90</CTableDataCell>
+            <CTableDataCell>90</CTableDataCell>
+            <CTableDataCell
+              ><CButton color="info" shape="rounded-10"
+                >Xem chi tiết</CButton
+              ></CTableDataCell
             >
-          </CTableDataCell>
-          <CTableDataCell>90</CTableDataCell>
-          <CTableDataCell>90</CTableDataCell>
-          <CTableDataCell>90</CTableDataCell>
-          <CTableDataCell
-            ><CButton color="info" shape="rounded-10"
-              >Xem chi tiết</CButton
-            ></CTableDataCell
-          >
-        </CTableRow>
-        <CTableRow>
-          <CTableDataCell scope="row">T1-2022</CTableDataCell>
-          <CTableDataCell
-            ><CButton color="warning" shape="rounded-10"
-              >Đang thiết lập</CButton
+          </CTableRow>
+          <CTableRow>
+            <CTableDataCell scope="row">T10-2021</CTableDataCell>
+            <CTableDataCell
+              ><CButton color="success" shape="rounded-10" class="width_100"
+                >Đã kích hoạt</CButton
+              >
+            </CTableDataCell>
+            <CTableDataCell>90</CTableDataCell>
+            <CTableDataCell>90</CTableDataCell>
+            <CTableDataCell>90</CTableDataCell>
+            <CTableDataCell
+              ><CButton color="info" shape="rounded-10"
+                >Xem chi tiết</CButton
+              ></CTableDataCell
             >
-          </CTableDataCell>
-          <CTableDataCell>90</CTableDataCell>
-          <CTableDataCell>90</CTableDataCell>
-          <CTableDataCell>90</CTableDataCell>
-          <CTableDataCell
-            ><CButton color="info" shape="rounded-10"
-              >Xem chi tiết</CButton
-            ></CTableDataCell
-          >
-        </CTableRow>
-        <CTableRow v-if="visibleDataDemo">
-          <CTableDataCell scope="row">T2-2022</CTableDataCell>
-          <CTableDataCell
-            ><CButton color="warning" shape="rounded-10"
-              >Đang thiết lập</CButton
+          </CTableRow>
+          <CTableRow>
+            <CTableDataCell scope="row">T11-2021</CTableDataCell>
+            <CTableDataCell
+              ><CButton color="warning" shape="rounded-10" class="width_100"
+                >Đang thiết lập</CButton
+              >
+            </CTableDataCell>
+            <CTableDataCell>90</CTableDataCell>
+            <CTableDataCell>90</CTableDataCell>
+            <CTableDataCell>90</CTableDataCell>
+            <CTableDataCell
+              ><CButton color="info" shape="rounded-10"
+                >Xem chi tiết</CButton
+              ></CTableDataCell
             >
-          </CTableDataCell>
-          <CTableDataCell>90</CTableDataCell>
-          <CTableDataCell>90</CTableDataCell>
-          <CTableDataCell>90</CTableDataCell>
-          <CTableDataCell
-            ><CButton color="info" shape="rounded-10"
-              >Xem chi tiết</CButton
-            ></CTableDataCell
-          >
-        </CTableRow>
-      </CTableBody>
-    </CTable>
+          </CTableRow>
+          <CTableRow align="center">
+            <CTableDataCell scope="row">T12-2021</CTableDataCell>
+            <CTableDataCell
+              ><CButton color="warning" shape="rounded-10" class="width_100"
+                >Đang thiết lập</CButton
+              >
+            </CTableDataCell>
+            <CTableDataCell>90</CTableDataCell>
+            <CTableDataCell>90</CTableDataCell>
+            <CTableDataCell>90</CTableDataCell>
+            <CTableDataCell
+              ><CButton color="info" shape="rounded-10"
+                >Xem chi tiết</CButton
+              ></CTableDataCell
+            >
+          </CTableRow>
+          <CTableRow>
+            <CTableDataCell scope="row">T1-2022</CTableDataCell>
+            <CTableDataCell
+              ><CButton color="warning" shape="rounded-10" class="width_100"
+                >Đang thiết lập</CButton
+              >
+            </CTableDataCell>
+            <CTableDataCell>90</CTableDataCell>
+            <CTableDataCell>90</CTableDataCell>
+            <CTableDataCell>90</CTableDataCell>
+            <CTableDataCell
+              ><CButton color="info" shape="rounded-10"
+                >Xem chi tiết</CButton
+              ></CTableDataCell
+            >
+          </CTableRow>
+          <CTableRow v-if="visibleDataDemo">
+            <CTableDataCell scope="row">T2-2022</CTableDataCell>
+            <CTableDataCell
+              ><CButton color="warning" shape="rounded-10" class="width_100"
+                >Đang thiết lập</CButton
+              >
+            </CTableDataCell>
+            <CTableDataCell>90</CTableDataCell>
+            <CTableDataCell>90</CTableDataCell>
+            <CTableDataCell>90</CTableDataCell>
+            <CTableDataCell
+              ><CButton color="info" shape="rounded-10"
+                >Xem chi tiết</CButton
+              ></CTableDataCell
+            >
+          </CTableRow>
+        </CTableBody>
+      </CTable>
+    </div>
 
     <CModal
       size="lg"
@@ -326,9 +335,15 @@ export default {
 .margin-2 {
   margin: 1px;
 }
+.flex {
+  display: flex;
+}
 .space_between {
   display: flex;
   justify-content: space-between;
   padding: 2px 10px;
+}
+.width_100 {
+  width: 140px;
 }
 </style>
