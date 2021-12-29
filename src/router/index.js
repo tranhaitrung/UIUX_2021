@@ -51,8 +51,8 @@ const routes = [
           },
           {
             path: '/kpi-unit/create',
-            name: 'Breadcrumbs',
-            component: () => import('@/views/base/Breadcrumbs.vue'),
+            name: 'Khởi tạo KPI đơn vị',
+            component: () => import('@/views/kpiUnit/CreateUnit.vue'),
           },
           {
             path: '/kpi-unit/manage',
