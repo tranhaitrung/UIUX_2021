@@ -51,7 +51,7 @@
         <input type="month" />
       </CRow>
       <div style="width: 10px"></div>
-      <CButton color="success" style="width: 150px">Tìm kiếm</CButton>
+      <el-button type="success" style="width: 150px">Tìm kiếm</el-button>
     </CRow>
     <div style="height: 20px"></div>
     <div style="background-color: white; padding: 80">
@@ -412,15 +412,15 @@
             </CRow>
           </fieldset>
 
-          <CButton
-            color="success"
+          <el-button
+            type="success"
             @click="
               () => {
                 visibleScrollableDemo = false
                 visibleDataDemo = true
               }
             "
-            >Lưu</CButton
+            >Lưu</el-button
           >
         </CForm>
       </CModalBody>

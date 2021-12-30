@@ -5,7 +5,7 @@
       class="space-between"
     >
       <h4>Quản lý KPI đơn vị</h4>
-      <el-button color="info" style="width: 120px" @click="exportBaocao">
+      <el-button type="info" style="width: 120px" @click="exportBaocao">
         Xuất báo cáo
       </el-button>
     </div>
@@ -37,7 +37,7 @@
         <el-input type="month" />
       </CRow>
       <div style="width: 110px"></div>
-      <CButton color="success" style="width: 100px">Tìm kiếm</CButton>
+      <el-button type="success" style="width: 100px">Tìm kiếm</el-button>
     </div>
     <CRow class="space_between">
       <CButton

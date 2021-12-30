@@ -22,7 +22,7 @@
         </CFormSelect>
       </CRow>
       <div style="width: 10px"></div>
-      <CButton color="success" style="width: 100px">Phân tích</CButton>
+      <el-button type="success" style="width: 100px">Phân tích</el-button>
     </CRow>
     <div class="select"></div>
     <CAccordion :active-item-key="2" always-open>
@@ -44,7 +44,7 @@
         <CAccordionHeader>
           Phân phối KPI UIUX_09 tháng 12-2021
         </CAccordionHeader>
-        <CAccordionBody>
+        <CAccordionBody align="center">
           <div style="width: 500px; height: 500px">
             <CChartPie :data="pie" />
           </div>

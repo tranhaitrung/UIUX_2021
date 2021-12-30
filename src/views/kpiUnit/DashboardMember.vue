@@ -22,7 +22,7 @@
         </CFormSelect>
       </CRow>
       <div style="width: 10px"></div>
-      <CButton color="success" style="width: 100px">Phân tích</CButton>
+      <el-button type="success" style="width: 100px">Phân tích</el-button>
     </CRow>
     <div class="select"></div>
     <CAccordion :active-item-key="0" always-open>
