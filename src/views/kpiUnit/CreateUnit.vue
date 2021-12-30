@@ -1,7 +1,7 @@
 <template>
   <el-row :span="24">
     <el-col :span="24">
-      <h3>Khởi tạo KPI cá nhân</h3>
+      <h3>Khởi tạo KPI đơn vị</h3>
       <el-row :span="24" style="margin-top: 20px; width: 100%">
         <el-col :span="7">
           <div class="row">
@@ -12,7 +12,7 @@
               <el-select
                 v-model="searchKPI"
                 clearable
-                placeholder="Chọn KPI đơn vị"
+                placeholder="Chọn KPI đơn vị cha"
                 style="width: 100%"
               >
                 <el-option
@@ -41,7 +41,7 @@
               <div class="bg-purple">
                 <div class="grid-content">
                   <edit style="width: 1em; height: 1em; margin-right: 8px" />
-                  <span>Chỉnh sửa</span>
+                  <span>Bỏ kích hoạt</span>
                 </div>
               </div>
             </el-col>
@@ -69,20 +69,16 @@
                   <promotion
                     style="width: 1em; height: 1em; margin-right: 8px"
                   />
-                  <span>Yêu cầu kích hoạt</span>
+                  <span>Độ quan trọng nhân viên</span>
                 </div>
               </div>
             </el-col>
           </el-row>
         </div>
         <div style="margin-top: 20px; width: 100%; margin-left: 10px">
-          <h5>KPI cá nhân giai đoạn 1/2022 - 3/2022</h5>
-          <span style="font-size: 15px">
-            <el-label> <b>Người phê duyệt:</b> </el-label>
-            <span> Trần Ngọc Phiên</span>
-          </span>
+          <h5>KPI đơn vị quý 1</h5>
           <el-row style="font-size: 15px">
-            <span>{{ total }} mục tiêu cá nhân</span>
+            <span>{{ total }} mục tiêu đơn vị</span>
             <span>-</span>
             <span>Tổng trọng số {{ score }}/100</span>
             <span>-</span>

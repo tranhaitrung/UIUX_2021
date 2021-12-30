@@ -1,7 +1,7 @@
 <template>
   <CRow>
     <el-col :span="24">
-      <h3>Khởi tạo KPI cá nhân</h3>
+      <h3>Dashboard KPI cá nhân</h3>
       <el-row :span="24" style="margin-top: 20px; width: 100%">
         <el-col :span="7">
           <div class="row">

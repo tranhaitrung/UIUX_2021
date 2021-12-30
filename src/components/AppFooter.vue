@@ -1,14 +1,13 @@
 <template>
   <CFooter>
     <div>
-      <a href="https://coreui.io" target="_blank">CoreUI</a>
       <span class="ms-1"
-        >&copy; {{ new Date().getFullYear() }} creativeLabs.</span
+        >Copyright by Công ty Cổ phần Công nghệ An toàn thông tin và Truyền
+        thông Việt Nam.</span
       >
     </div>
     <div class="ms-auto">
-      <span class="me-1" target="_blank">Powered by</span>
-      <a href="https://coreui.io/vue">CoreUI for Vue</a>
+      <span class="me-1" target="_blank">Phiên bản 2019.1</span>
     </div>
   </CFooter>
 </template>

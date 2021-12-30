@@ -22,7 +22,7 @@
         </CFormSelect>
       </CRow>
       <div style="width: 10px"></div>
-      <CButton color="success" style="width: 100px">Tìm kiếm</CButton>
+      <el-button type="success" style="width: 100px">Tìm kiếm</el-button>
     </CRow>
     <div class="select"></div>
     <CAccordion :active-item-key="2" always-open>
