@@ -13,13 +13,8 @@
       <div style="width: 50px"></div>
       Tháng
       <div style="width: 10px"></div>
-      <CRow class="select">
-        <CFormSelect aria-label="Default select example">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="2">3</option>
-          <option value="2">4</option>
-        </CFormSelect>
+      <CRow class="align-items-center select">
+        <el-input type="month"></el-input>
       </CRow>
       <div style="width: 10px"></div>
       <el-button type="success" style="width: 100px">Phân tích</el-button>
@@ -38,7 +33,17 @@
         <CAccordionHeader>
           Xu hướng thực hiện mục tiêu của nhân viên UIUX_09 tháng 12-2021
         </CAccordionHeader>
-        <CAccordionBody> </CAccordionBody>
+        <CAccordionBody align="center">
+          <CChartLine
+            :data="line"
+            style="
+              height: 400px;
+              max-height: 400px;
+              margin-top: 30px;
+              width: 700px;
+            "
+          />
+        </CAccordionBody>
       </CAccordionItem>
       <CAccordionItem :item-key="3">
         <CAccordionHeader>
@@ -63,10 +68,11 @@
 <script>
 import { CChartBar } from '@coreui/vue-chartjs'
 import { CChartPie } from '@coreui/vue-chartjs'
+import { CChartLine } from '@coreui/vue-chartjs'
 
 export default {
   name: 'Dashboard KPI đơn vị',
-  components: { CChartBar, CChartPie },
+  components: { CChartBar, CChartPie, CChartLine },
   computed: {
     bar() {
       return {
@@ -121,6 +127,39 @@ export default {
               '#DBE2D1',
             ],
             data: [10, 10, 20, 20, 20, 10, 10],
+          },
+        ],
+      }
+    },
+    line() {
+      return {
+        labels: [
+          'Phê duyệt công việc',
+          'Hỗ trợ thực hiện công việc',
+          'Sử dụng hệ thống',
+          'Tìm hiểu lý thuyết, tìm hiểu công nghệ',
+          'Thiết kế',
+        ],
+        datasets: [
+          {
+            label: 'Số công việc',
+            backgroundColor: 'rgb(228,102,81,0.9)',
+            data: [3, 2, 3, 3, 4],
+          },
+          {
+            label: 'Thời gian thực hiện',
+            backgroundColor: 'rgb(0,216,255,0.9)',
+            data: [5, 4, 6, 6, 6],
+          },
+          {
+            label: 'Số người tham gia',
+            backgroundColor: '#006600',
+            data: [4, 4, 2, 3, 2],
+          },
+          {
+            label: 'Số KPI nhân viên',
+            backgroundColor: '#666600',
+            data: [5, 6, 4, 3, 4],
           },
         ],
       }
