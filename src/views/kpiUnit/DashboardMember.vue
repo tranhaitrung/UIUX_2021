@@ -22,124 +22,27 @@
         </CFormSelect>
       </CRow>
       <div style="width: 10px"></div>
-      <CButton color="success" style="width: 100px">Phân tích</CButton>
+      <el-button type="success" style="width: 100px">Phân tích</el-button>
     </CRow>
     <div class="select"></div>
     <CAccordion :active-item-key="0" always-open>
       <CAccordionItem :item-key="1">
-        <CAccordionHeader>
-          Biểu đồ thống kê điểm KPI giữa các đơn vị tháng 12-2021
-        </CAccordionHeader>
-        <CAccordionBody>
-          <CButton color="success" style="width: 100px">Phân tích</CButton>
-        </CAccordionBody>
+        <CAccordionHeader> Nhân viên xuất sắc nhất </CAccordionHeader>
+        <CAccordionBody> </CAccordionBody>
       </CAccordionItem>
       <CAccordionItem :item-key="2">
-        <CAccordionHeader>
-          Xu hướng thực hiện mục tiêu của nhân viên UIUX_09 tháng 12-2021
-        </CAccordionHeader>
-        <CAccordionBody>
-          <CChart
-            type="bar"
-            :data="{
-              labels: [
-                'January',
-                'February',
-                'March',
-                'April',
-                'May',
-                'June',
-                'July',
-              ],
-              datasets: [
-                {
-                  label: 'GitHub Commits',
-                  backgroundColor: '#f87979',
-                  data: [40, 20, 12, 39, 10, 40, 39, 80, 40],
-                },
-              ],
-            }"
-            labels="months"
-          />
-        </CAccordionBody>
+        <CAccordionHeader> Thống kê kết quả KPI nhân viên </CAccordionHeader>
+        <CAccordionBody> </CAccordionBody>
       </CAccordionItem>
       <CAccordionItem :item-key="3">
-        <CAccordionHeader>
-          Phân phối KPI UIUX_09 tháng 12-2021
-        </CAccordionHeader>
-        <CAccordionBody>
-          <CChart
-            type="line"
-            :wrapper="false"
-            :data="{
-              labels: [
-                'January',
-                'February',
-                'March',
-                'April',
-                'May',
-                'June',
-                'July',
-              ],
-              datasets: [
-                {
-                  label: 'My First dataset',
-                  backgroundColor: 'rgba(220, 220, 220, 0.2)',
-                  borderColor: 'rgba(220, 220, 220, 1)',
-                  pointBackgroundColor: 'rgba(220, 220, 220, 1)',
-                  pointBorderColor: '#fff',
-                  data: [40, 20, 12, 39, 10, 40, 39],
-                },
-                {
-                  label: 'My Second dataset',
-                  backgroundColor: 'rgba(151, 187, 205, 0.2)',
-                  borderColor: 'rgba(151, 187, 205, 1)',
-                  pointBackgroundColor: 'rgba(151, 187, 205, 1)',
-                  pointBorderColor: '#fff',
-                  data: [50, 12, 28, 29, 7, 25, 12],
-                },
-              ],
-            }"
-          />
-        </CAccordionBody>
+        <CAccordionHeader> So sánh KPI nhân viên </CAccordionHeader>
+        <CAccordionBody> </CAccordionBody>
       </CAccordionItem>
       <CAccordionItem :item-key="4">
-        <CAccordionHeader> Kết quả KPI UIUX_09 </CAccordionHeader>
-        <CAccordionBody>
-          <CChart
-            type="line"
-            :wrapper="false"
-            :data="{
-              labels: [
-                'January',
-                'February',
-                'March',
-                'April',
-                'May',
-                'June',
-                'July',
-              ],
-              datasets: [
-                {
-                  label: 'My First dataset',
-                  backgroundColor: 'rgba(220, 220, 220, 0.2)',
-                  borderColor: 'rgba(220, 220, 220, 1)',
-                  pointBackgroundColor: 'rgba(220, 220, 220, 1)',
-                  pointBorderColor: '#fff',
-                  data: [40, 20, 12, 39, 10, 40, 39],
-                },
-                {
-                  label: 'My Second dataset',
-                  backgroundColor: 'rgba(151, 187, 205, 0.2)',
-                  borderColor: 'rgba(151, 187, 205, 1)',
-                  pointBackgroundColor: 'rgba(151, 187, 205, 1)',
-                  pointBorderColor: '#fff',
-                  data: [50, 12, 28, 29, 7, 25, 12],
-                },
-              ],
-            }"
-          />
-        </CAccordionBody>
+        <CAccordionHeader>
+          Kết quả KPI tất cả các nhân viên UIUX_09
+        </CAccordionHeader>
+        <CAccordionBody> </CAccordionBody>
       </CAccordionItem>
     </CAccordion>
   </CColumn>

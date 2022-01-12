@@ -11,18 +11,7 @@
         })
     "
   >
-    <CSidebarBrand>
-      <CIcon
-        custom-class-name="sidebar-brand-full"
-        :icon="logoNegative"
-        :height="35"
-      />
-      <CIcon
-        custom-class-name="sidebar-brand-narrow"
-        :icon="sygnet"
-        :height="35"
-      />
-    </CSidebarBrand>
+    <CSidebarBrand><h3>DX Workplace</h3></CSidebarBrand>
     <AppSidebarNav />
     <CSidebarToggler
       class="d-none d-lg-flex"
