@@ -20,7 +20,7 @@
       <el-button type="success" style="width: 100px">Phân tích</el-button>
     </CRow>
     <div class="select"></div>
-    <CAccordion :active-item-key="2" always-open>
+    <CAccordion always-open>
       <CAccordionItem :item-key="1">
         <CAccordionHeader>
           Biểu đồ thống kê điểm KPI giữa các đơn vị tháng 12-2021
