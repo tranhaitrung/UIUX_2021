@@ -587,6 +587,7 @@ export default {
         message: 'Xóa mục tiêu thành công',
         type: 'success',
       })
+      this.totalSelect = 0
       this.confirmDialog = false
     },
   },
