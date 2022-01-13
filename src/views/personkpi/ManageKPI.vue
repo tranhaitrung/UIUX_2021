@@ -152,6 +152,19 @@
         </el-table-column>
       </el-table>
     </div>
+    <div class="demo-pagination-block">
+      <span class="demonstration">Chọn kích thước trang</span>
+      <el-pagination
+        v-model:currentPage="currentPage2"
+        :page-sizes="[10, 15, 20, 25]"
+        :page-size="10"
+        layout="sizes, prev, pager, next"
+        :total="5"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+      >
+      </el-pagination>
+    </div>
     <div>
       <el-dialog
         v-model="dialogDetailWeek"
@@ -245,6 +258,9 @@ export default {
         })
         this.randomExport = true
       }
+    },
+    search() {
+      this.$message.success('Bạn đã tìm kiếm thành công')
     },
   },
 }
