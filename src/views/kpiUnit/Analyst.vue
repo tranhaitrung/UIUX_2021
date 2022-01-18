@@ -13,7 +13,7 @@
       <div style="width: 50px"></div>
       Tháng
       <div style="width: 10px"></div>
-      <CRow class="select">
+      <CRow class="align-items-center select">
         <CFormSelect aria-label="Default select example">
           <option value="1">1</option>
           <option value="2">2</option>
