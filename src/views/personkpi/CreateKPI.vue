@@ -495,6 +495,38 @@ export default {
   },
   methods: {
     calculateScore(row) {
+      if (row.name === '') {
+        ElMessage({
+          showClose: true,
+          message: 'Vui lòng điền tên mục tiêu',
+          type: 'error',
+        })
+        return
+      }
+      if (row.parent === '') {
+        ElMessage({
+          showClose: true,
+          message: 'Vui lòng chọn mục tiêu cha',
+          type: 'error',
+        })
+        return
+      }
+      if (row.criteria === '') {
+        ElMessage({
+          showClose: true,
+          message: 'Vui lòng điền tiêu chí đánh giá',
+          type: 'error',
+        })
+        return
+      }
+      if (row.score === '') {
+        ElMessage({
+          showClose: true,
+          message: 'Vui lòng điền tiêu trọng số đánh giá',
+          type: 'error',
+        })
+        return
+      }
       var count = 0
       for (let i = 0; i < this.total; i++) {
         count = count + parseInt(this.tableData[i].score)
@@ -536,6 +568,38 @@ export default {
       this.tableData.push(newRow)
     },
     saveNew(row) {
+      if (row.name === '') {
+        ElMessage({
+          showClose: true,
+          message: 'Vui lòng điền tên mục tiêu',
+          type: 'error',
+        })
+        return
+      }
+      if (row.parent === '') {
+        ElMessage({
+          showClose: true,
+          message: 'Vui lòng chọn mục tiêu cha',
+          type: 'error',
+        })
+        return
+      }
+      if (row.criteria === '') {
+        ElMessage({
+          showClose: true,
+          message: 'Vui lòng điền tiêu chí đánh giá',
+          type: 'error',
+        })
+        return
+      }
+      if (row.score === '') {
+        ElMessage({
+          showClose: true,
+          message: 'Vui lòng điền tiêu trọng số đánh giá',
+          type: 'error',
+        })
+        return
+      }
       row.isRead = true
       row.isNew = false
       this.score = this.score + parseInt(row.score)
@@ -557,8 +621,24 @@ export default {
       }
     },
     showKpiDetail() {
-      this.isNotNull = true
-      this.addKPIDialog = false
+      if (this.kpiFrom.unitKPI === '') {
+        ElMessage({
+          showClose: true,
+          message: 'Vui lòng chọn KPI đơn vị',
+          type: 'error',
+        })
+        return
+      } else if (this.kpiFrom.approve === '') {
+        ElMessage({
+          showClose: true,
+          message: 'Vui lòng chọn người phê duyệt',
+          type: 'error',
+        })
+        return
+      } else {
+        this.isNotNull = true
+        this.addKPIDialog = false
+      }
     },
     removeButton() {
       if (this.totalSelect === 0) {
