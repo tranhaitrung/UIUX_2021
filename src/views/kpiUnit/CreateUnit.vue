@@ -120,6 +120,7 @@
                 <el-input
                   size="mini"
                   style="height: auto"
+                  placeholder="Tên mục tiêu (bắt buộc)"
                   v-model="scope.row.name"
                   :readonly="scope.row.isRead"
                 />
@@ -133,7 +134,7 @@
                 <el-select
                   v-model="scope.row.parent"
                   clearable
-                  placeholder="Chọn mục tiêu cha"
+                  placeholder="Chọn mục tiêu cha (bắt buộc)"
                   :disabled="scope.row.isRead"
                 >
                   <el-option
@@ -155,6 +156,7 @@
                   size="mini"
                   style="height: auto"
                   type="textarea"
+                  placeholder="Tiêu chí đánh giá (bắt buộc)"
                   v-model="scope.row.criteria"
                   :readonly="scope.row.isRead"
                 />
@@ -168,6 +170,7 @@
                 <el-input
                   size="mini"
                   type="number"
+                  placeholder="Trọng số (bắt buộc)"
                   v-model="scope.row.score"
                   :readonly="scope.row.isRead"
                 />
@@ -274,7 +277,7 @@
             <el-form-item label="Đơn vị">
               <el-input v-model="kpiFrom.unit" readonly></el-input>
             </el-form-item>
-            <el-form-item label="Chọn KPI đơn vị">
+            <el-form-item label="Chọn KPI đơn vị" required>
               <el-select
                 v-model="kpiFrom.unitKPI"
                 clearable
@@ -290,7 +293,7 @@
                 </el-option>
               </el-select>
             </el-form-item>
-            <el-form-item label="Người phê duyệt">
+            <el-form-item label="Người phê duyệt" required>
               <el-select
                 v-model="kpiFrom.approve"
                 clearable
@@ -515,10 +518,10 @@ export default {
         })
         return
       }
-      if (row.score === '') {
+      if (row.score === '' || row.score < 0) {
         ElMessage({
           showClose: true,
-          message: 'Vui lòng điền tiêu trọng số đánh giá',
+          message: 'Vui lòng điền trọng số đánh giá lớn hơn hoặc bằng 0',
           type: 'error',
         })
         return
@@ -588,10 +591,10 @@ export default {
         })
         return
       }
-      if (row.score === '') {
+      if (row.score === '' || row.score < 0) {
         ElMessage({
           showClose: true,
-          message: 'Vui lòng điền tiêu trọng số đánh giá',
+          message: 'Vui lòng điền trọng số đánh giá lớn hơn hoặc bằng 0',
           type: 'error',
         })
         return

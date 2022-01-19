@@ -104,6 +104,53 @@ const routes = [
         ],
       },
       {
+        path: '/helps',
+        name: 'Hướng dẫn sử dụng',
+        component: {
+          render() {
+            return h(resolveComponent('router-view'))
+          },
+        },
+        redirect: '/helps',
+        children: [
+          {
+            path: '',
+            name: '',
+            component: () => import('@/views/help/Help.vue'),
+          },
+          {
+            path: '/helps/detail-work',
+            name: 'Chi tiết công việc',
+            component: () => import('@/views/help/DetailWork.vue'),
+          },
+          {
+            path: '/helps/kpi',
+            name: 'Tài liệu hướng dẫn khởi tạo KPI',
+            component: () => import('@/views/help/HelpKPI.vue'),
+          },
+          {
+            path: '/helps/mamager-document-person',
+            name: 'Quản lý tài liệu văn bản cá nhân',
+            component: () => import('@/views/help/ManagerDocument.vue'),
+          },
+          {
+            path: '/helps/tai-san-quan-ly',
+            name: 'Tài sản quản lý',
+            component: () => import('@/views/help/Taisanquanly.vue'),
+          },
+          {
+            path: '/helps/dang-ky-su-dung-thiet-bi',
+            name: 'Đăng ký sử dụng thiết bị',
+            component: () => import('@/views/help/Dangkysudungthietbi.vue'),
+          },
+          {
+            path: '/helps/dang-ky-mua-sam-thiet-bi',
+            name: 'Đăng ký mua sắn thiết bị',
+            component: () => import('@/views/help/Dangkymuasamthietbi.vue'),
+          },
+        ],
+      },
+      {
         path: '/base',
         name: 'Base',
         component: {
