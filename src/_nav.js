@@ -69,15 +69,13 @@ export default [
       },
     ],
   },
+  {
+    component: 'CNavItem',
+    name: 'Hướng dẫn sử dụng',
+    to: '/helps',
+    icon: 'cil-document',
+  },
 
-  // {
-  //   component: 'CNavItem',
-  //   name: 'Download CoreUI',
-  //   href: 'http://coreui.io/vue/',
-  //   icon: { name: 'cil-cloud-download', class: 'text-white' },
-  //   _class: 'bg-success text-white',
-  //   target: '_blank'
-  // },
   // {
   //   component: 'CNavItem',
   //   name: 'Try CoreUI PRO',
